@@ -4,10 +4,32 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Syne+Mono&display=swap"
+      rel="stylesheet"
+    />
     <title>App</title>
   </head>
+
   <body>
-    <h1>Music Playlist Builder</h1>
+    <h1 class="title">Music Store</h1>
+    <div class="contain">
+      <button class="categories box btn">Game</button>
+      <button class="categories box btn">LoFi</button>
+      <button class="categories box btn">Pop</button>
+      <button class="categories box btn">Rock</button>
+    </div>
+
+    <div class="musicStore"></div>
+    <div class="playlist">
+      <h1 class="playlistTitle">Playlist</h1>
+      <div class="items">
+        <div class="cartItems"></div>
+      </div>
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
