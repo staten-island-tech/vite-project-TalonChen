@@ -136,6 +136,15 @@ const musicstore = document.querySelector(".musicStore");
 function getSongs(songs) {
   musicstore.innerHTML = "";
   songs.forEach((song) => {
-    musicstore.insertAdjacentElement("afterbegin");
+    musicstore.insertAdjacentElement(
+      "afterbegin",
+      `<div class="songs">
+        <h2 class = "song">${song.name}</h2>
+        <img src="${song.image}" alt = ${song.name} />
+        <button class = "btn song add">Add to Playlist</button>
+      </div>
+      `
+    );
   });
 }
+getSongs(songs);
