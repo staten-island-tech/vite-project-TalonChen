@@ -14,124 +14,125 @@ const songs = [
     name: "Megalovania",
     artist: "Toby Fox",
     genre: "game",
-    image: "src/images/megalovania.jpg",
+    image: "public/images/megalovania.jpg",
   },
   {
     name: "Clash Royale Theme Song",
     artist: "Carl V",
     genre: "game",
-    image: "src/images/clashroyale.jpg",
+    image: "public/images/clashroyale.jpg",
   },
   {
     name: "Pigstep",
     artist: "Lena Raine",
     genre: "game",
-    image: "src/images/pigstep.jpg",
+    image: "public/images/pigstep.jpg",
   },
   {
     name: "Jumper",
     artist: "Waterflame",
     genre: "game",
-    image: "src/images/jumper.webp",
+    image: "public/images/jumper.webp",
   },
   {
     name: "Lifelight",
     artist: "Hideki Sakamoto",
     genre: "game",
-    image: "src/images/lifelight.jpg",
+    image: "public/images/lifelight.jpg",
   },
   {
     name: "Blinding Lights",
     artist: "The Weeknd",
     genre: "pop",
-    image: "src/images/blindinglights.jpg",
+    image: "public/images/blindinglights.jpg",
   },
   {
     name: "Shape of You",
     artist: "Ed Sheeran",
     genre: "pop",
-    image: "src/images/shapeofyou.webp",
+    image: "public/images/shapeofyou.webp",
   },
   {
     name: "Treat You Better",
     artist: "Shawn Mendes",
     genre: "pop",
-    image: "src/images/treatyoubetter.jpg",
+    image: "public/images/treatyoubetter.jpg",
   },
   {
     name: "Clarity",
     artist: "Zedd ft. Foxes",
     genre: "edm",
-    image: "src/images/clarity.jpg",
+    image: "public/images/clarity.jpg",
   },
   {
     name: "Animals",
     artist: "Martin Garrix",
     genre: "edm",
-    image: "src/images/animals.jpg",
+    image: "public/images/animals.jpg",
   },
   {
     name: "Don't You Worry Child",
     artist: "Swedish House Mafia",
     genre: "edm",
-    image: "src/images/dontyouworrychild.jpg",
+    image: "public/images/dontyouworrychild.jpg",
   },
   {
     name: "Silence",
     artist: "Marshmello ft. Khalid",
     genre: "edm",
-    image: "src/images/silence.webp",
+    image: "public/images/silence.webp",
   },
   {
     name: "Levitating",
     artist: "Dua Lipa",
     genre: "pop",
-    image: "src/images/levitating.webp",
+    image: "public/images/levitating.webp",
   },
   {
     name: "As It Was",
     artist: "Harry Styles",
     genre: "pop",
-    image: "src/images/asitwas.jpg",
+    image: "public/images/asitwas.jpg",
   },
   {
     name: "Hotel California",
     artist: "Eagles",
     genre: "rock",
-    image: "src/images/hotelcalifornia.jpg",
+    image: "public/images/hotelcalifornia.jpg",
   },
   {
     name: "Sweet Child O' Mine",
     artist: "Guns N' Roses",
     genre: "rock",
-    image: "src/images/sweetchildomine.jpg",
+    image: "public/images/sweetchildomine.jpg",
   },
   {
     name: "Smells Like Teens Spirit",
     artist: "Nirvana",
     genre: "rock",
-    image: "src/images/smellsliketeensspirit.jpg",
+    image: "public/images/smellsliketeensspirit.jpg",
   },
   {
     name: "Bohemian Rhapsody",
     artist: "Queen",
     genre: "rock",
-    image: "src/images/bohemianrhapsody.webp",
+    image: "public/images/bohemianrhapsody.webp",
   },
   {
     name: "Shelter",
     artist: "Porter Robinson & Madeon",
     genre: "edm",
-    image: "src/images/shelter.jpg",
+    image: "public/images/shelter.jpg",
   },
   {
     name: "Back in Black",
     artist: "AC/DC",
     genre: "rock",
-    image: "src//backinblack.jpg",
+    image: "public/images/backinblack.jpg",
   },
 ];
 const musicStore = document.querySelector(".musicLibrary");
+const buttons = document.querySelector(".buttons");
 
 function getSongs(songs) {
   musicStore.innerHTML = "";
@@ -148,3 +149,17 @@ function getSongs(songs) {
   });
 }
 getSongs(songs);
+
+const filterbuttons = document.querySelectorAll(".categories");
+
+filterbuttons.forEach((button) =>
+  button.addEventListener("click", function (event) {
+    const category = event.target.textContent.toLowerCase();
+    if (category === "all") {
+      filteredSkins = skins;
+    } else {
+      filteredSkins = skins.filter((skin) => skin.category === category);
+    }
+    getSkins(filteredSkins);
+  })
+);

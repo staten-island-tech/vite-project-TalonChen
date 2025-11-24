@@ -1,5 +1,40 @@
 :root {
 }
 
-.header {
+html,
+body,
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font: 62.5%;
+}
+
+.musicLibrary {
+  font-size: 3rem;
+  margin: 2rem auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.songs {
+  box-shadow: 5px 5px 10px gray, -5px -5px 10px lightgray;
+  color: blue;
+  height: 50vh;
+  width: 22%;
+  padding: 1rem;
+  margin: 5rem auto;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  transition: 0.6s ease;
+}
+
+.songs img {
+  max-width: 50%;
+  max-height: 50%;
 }
