@@ -132,7 +132,7 @@ const songs = [
   },
 ];
 const musicStore = document.querySelector(".musicLibrary");
-const buttons = document.querySelector(".buttons");
+const buttons = document.querySelector(".categories");
 
 function getSongs(songs) {
   musicStore.innerHTML = "";
@@ -152,14 +152,18 @@ getSongs(songs);
 
 const filterbuttons = document.querySelectorAll(".categories");
 
-filterbuttons.forEach((button) =>
-  button.addEventListener("click", function (event) {
-    const category = event.target.textContent.toLowerCase();
-    if (category === "all") {
-      filteredSkins = skins;
-    } else {
-      filteredSkins = skins.filter((skin) => skin.category === category);
-    }
-    getSkins(filteredSkins);
-  })
-);
+function filtering() {
+  let filteredSongs = [];
+  filterbuttons.forEach((button) =>
+    button.addEventListener("click", function (event) {
+      const category = event.target.textContent.toLowerCase();
+      if (category === "all") {
+        filteredSongs = songs;
+      } else {
+        filteredSongs = songs.filter((song) => song.category === category);
+      }
+      getSongs(filteredSongs);
+    })
+  );
+}
+filtering();

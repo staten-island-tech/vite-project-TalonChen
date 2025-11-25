@@ -10,8 +10,42 @@ body,
   font: 62.5%;
 }
 
+.title {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row;
+  align-content: center;
+  font-family: "Syne Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+  color: #ff4654;
+}
+
+.contain {
+  width: 90%;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: row;
+  padding: 1rem;
+  margin: 5rem auto;
+  border-radius: 5px;
+  border: 2px solid rgb(70, 70, 124);
+  transition: 0.6s ease;
+}
+
+.categories {
+  font-size: 100px;
+  display: flex inline;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-radius: 25px;
+}
+
 .musicLibrary {
-  font-size: 3rem;
+  font-size: 1rem;
   margin: 2rem auto;
   display: flex;
   flex-wrap: wrap;
@@ -21,7 +55,6 @@ body,
 
 .songs {
   box-shadow: 5px 5px 10px gray, -5px -5px 10px lightgray;
-  color: blue;
   height: 50vh;
   width: 22%;
   padding: 1rem;
