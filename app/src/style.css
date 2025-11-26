@@ -19,7 +19,6 @@ body,
   font-family: "Syne Mono", monospace;
   font-weight: 400;
   font-style: normal;
-  color: #ff4654;
 }
 
 .contain {
@@ -31,8 +30,6 @@ body,
   flex-direction: row;
   padding: 1rem;
   margin: 5rem auto;
-  border-radius: 5px;
-  border: 2px solid rgb(70, 70, 124);
   transition: 0.6s ease;
 }
 
@@ -68,6 +65,6 @@ body,
 }
 
 .songs img {
-  max-width: 50%;
-  max-height: 50%;
+  max-width: 100rem;
+  max-height: 10rem;
 }

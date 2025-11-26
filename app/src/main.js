@@ -4,10 +4,12 @@ import "./style.css";
 //Steps
 //Array of songs
 //Create different categories of the music - In HTML
-//Display all the cards on the screen with two different containers - the overall (songList) and the container for one song (song)
+//Display all the cards on the screen with two different containers - the overall (musicLibrary) and the container for one song (song)
 //Create filter buttons for the different categories/genres
-//Create a playlist
+//Create a playlist where they can add their songs
 //Add light and dark mode
+//Add the ability to insert new songs with their name, artist, genre, and image url.
+//Add the ability to add an image url to their album.
 
 const songs = [
   {
@@ -160,10 +162,34 @@ function filtering() {
       if (category === "all") {
         filteredSongs = songs;
       } else {
-        filteredSongs = songs.filter((song) => song.category === category);
+        filteredSongs = songs.filter((song) => song.genre === category);
       }
       getSongs(filteredSongs);
     })
   );
 }
 filtering();
+
+const playlist = [];
+let total = 0;
+
+document.addEventListener("click", function (find) {
+  if (find.target.classList.contains("add")) {
+    const skinName = find.target.dataset.name;
+    const skinData = skins.find((skin) => skin.name === skinName);
+
+    if (skinData) {
+      playlist.push(skinData);
+      document.querySelector(".playlistItems").insertAdjacentHTML(
+        "beforeend",
+        `
+        <p>${skinData.name} - ${skinData.price} VP</p>
+        `
+      );
+      total += skinData.price;
+      document.querySelector(
+        ".totalPrice"
+      ).innerHTML = `<h3>Total: ${total} VP</h3>`;
+    }
+  }
+});
