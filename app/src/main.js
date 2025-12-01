@@ -16,125 +16,124 @@ const songs = [
     name: "Megalovania",
     artist: "Toby Fox",
     genre: "game",
-    image: "public/images/megalovania.jpg",
+    image: "/images/megalovania.jpg",
   },
   {
     name: "Clash Royale Theme Song",
     artist: "Carl V",
     genre: "game",
-    image: "public/images/clashroyale.jpg",
+    image: "/images/clashroyale.jpg",
   },
   {
     name: "Pigstep",
     artist: "Lena Raine",
     genre: "game",
-    image: "public/images/pigstep.jpg",
+    image: "/images/pigstep.jpg",
   },
   {
     name: "Jumper",
     artist: "Waterflame",
     genre: "game",
-    image: "public/images/jumper.webp",
+    image: "/images/jumper.webp",
   },
   {
     name: "Lifelight",
     artist: "Hideki Sakamoto",
     genre: "game",
-    image: "public/images/lifelight.jpg",
+    image: "/images/lifelight.jpg",
   },
   {
     name: "Blinding Lights",
     artist: "The Weeknd",
     genre: "pop",
-    image: "public/images/blindinglights.jpg",
+    image: "/images/blindinglights.jpg",
   },
   {
     name: "Shape of You",
     artist: "Ed Sheeran",
     genre: "pop",
-    image: "public/images/shapeofyou.webp",
+    image: "/images/shapeofyou.webp",
   },
   {
     name: "Treat You Better",
     artist: "Shawn Mendes",
     genre: "pop",
-    image: "public/images/treatyoubetter.jpg",
+    image: "/images/treatyoubetter.jpg",
   },
   {
     name: "Clarity",
     artist: "Zedd ft. Foxes",
     genre: "edm",
-    image: "public/images/clarity.jpg",
+    image: "/images/clarity.jpg",
   },
   {
     name: "Animals",
     artist: "Martin Garrix",
     genre: "edm",
-    image: "public/images/animals.jpg",
+    image: "/images/animals.jpg",
   },
   {
     name: "Don't You Worry Child",
     artist: "Swedish House Mafia",
     genre: "edm",
-    image: "public/images/dontyouworrychild.jpg",
+    image: "/images/dontyouworrychild.jpg",
   },
   {
     name: "Silence",
     artist: "Marshmello ft. Khalid",
     genre: "edm",
-    image: "public/images/silence.webp",
+    image: "/images/silence.webp",
   },
   {
     name: "Levitating",
     artist: "Dua Lipa",
     genre: "pop",
-    image: "public/images/levitating.webp",
+    image: "/images/levitating.webp",
   },
   {
     name: "As It Was",
     artist: "Harry Styles",
     genre: "pop",
-    image: "public/images/asitwas.jpg",
+    image: "/images/asitwas.jpg",
   },
   {
     name: "Hotel California",
     artist: "Eagles",
     genre: "rock",
-    image: "public/images/hotelcalifornia.jpg",
+    image: "/images/hotelcalifornia.jpg",
   },
   {
     name: "Sweet Child O' Mine",
     artist: "Guns N' Roses",
     genre: "rock",
-    image: "public/images/sweetchildomine.jpg",
+    image: "/images/sweetchildomine.jpg",
   },
   {
     name: "Smells Like Teens Spirit",
     artist: "Nirvana",
     genre: "rock",
-    image: "public/images/smellsliketeensspirit.jpg",
+    image: "/images/smellsliketeensspirit.jpg",
   },
   {
     name: "Bohemian Rhapsody",
     artist: "Queen",
     genre: "rock",
-    image: "public/images/bohemianrhapsody.webp",
+    image: "/images/bohemianrhapsody.webp",
   },
   {
     name: "Shelter",
     artist: "Porter Robinson & Madeon",
     genre: "edm",
-    image: "public/images/shelter.jpg",
+    image: "/images/shelter.jpg",
   },
   {
     name: "Back in Black",
     artist: "AC/DC",
     genre: "rock",
-    image: "public/images/backinblack.jpg",
+    image: "/images/backinblack.jpg",
   },
 ];
 const musicStore = document.querySelector(".musicLibrary");
-const buttons = document.querySelector(".categories");
 
 function getSongs(songs) {
   musicStore.innerHTML = "";
@@ -171,25 +170,21 @@ function filtering() {
 filtering();
 
 const playlist = [];
-let total = 0;
-
 document.addEventListener("click", function (find) {
   if (find.target.classList.contains("add")) {
-    const skinName = find.target.dataset.name;
-    const skinData = skins.find((skin) => skin.name === skinName);
+    const songName = find.target.dataset.name;
+    const songData = songs.find((song) => song.name === songName);
 
-    if (skinData) {
-      playlist.push(skinData);
-      document.querySelector(".playlistItems").insertAdjacentHTML(
+    if (songData) {
+      playlist.push(songData);
+      document.querySelector(".playlistSongs").insertAdjacentHTML(
         "beforeend",
-        `
-        <p>${skinData.name} - ${skinData.price} VP</p>
-        `
+        `<div class="songs" data-genre = "${songs.genre}">
+        <h2 class = "song">${songs.name}</h2>
+        <img src="${songs.image}" alt = "${songs.name}" />
+      </div>
+      `
       );
-      total += skinData.price;
-      document.querySelector(
-        ".totalPrice"
-      ).innerHTML = `<h3>Total: ${total} VP</h3>`;
     }
   }
 });
