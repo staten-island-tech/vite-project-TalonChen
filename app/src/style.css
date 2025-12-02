@@ -1,4 +1,31 @@
 :root {
+  --cyan: #00ffff;
+  --dark-blue: #135cc5;
+  --light-red: #f87171;
+  --dark-red: #dc2626;
+
+  /* Intentions */
+  --primary: var(--cyan);
+  --secondary: var(--dark-blue);
+}
+
+.cool {
+  --primary: var(--cyan);
+  --secondary: var(--dark-blue);
+}
+
+.warm {
+  --primary: var(--light-red);
+  --secondary: var(--dark-red);
+}
+
+.hero {
+  background-color: var(--primary);
+}
+
+.main {
+  background-color: var(--secondary);
+  height: 100%;
 }
 
 html,
@@ -67,4 +94,11 @@ body,
 .songs img {
   max-width: 100rem;
   max-height: 10rem;
+}
+
+.songs:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  transition: all 0.7s ease;
+  box-shadow: ;
 }

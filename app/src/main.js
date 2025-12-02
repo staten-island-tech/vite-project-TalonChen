@@ -175,16 +175,24 @@ document.addEventListener("click", function (find) {
     const songName = find.target.dataset.name;
     const songData = songs.find((song) => song.name === songName);
 
-    if (songData) {
-      playlist.push(songData);
-      document.querySelector(".playlistSongs").insertAdjacentHTML(
-        "beforeend",
-        `<div class="songs" data-genre = "${songs.genre}">
-        <h2 class = "song">${songs.name}</h2>
-        <img src="${songs.image}" alt = "${songs.name}" />
+    playlist.push(songData);
+    document.querySelector(".playlistSongs").insertAdjacentHTML(
+      "beforeend",
+      `<div class="songs" data-genre = "${songData.genre}">
+        <h2 class = "song">${songData.name}</h2>
+        <img src="${songData.image}" alt = "${songData.name}" />
       </div>
       `
-      );
-    }
+    );
+  }
+});
+
+document.querySelector(".btn").addEventListener("click", function () {
+  if (document.body.classList.contains("cool")) {
+    document.body.classList.add("warm");
+    document.body.classList.remove("cool");
+  } else {
+    document.body.classList.add("cool");
+    document.body.classList.remove("warm");
   }
 });
