@@ -181,6 +181,7 @@ document.addEventListener("click", function (find) {
       `<div class="songs" data-genre = "${songData.genre}">
         <h2 class = "song">${songData.name}</h2>
         <img src="${songData.image}" alt = "${songData.name}" />
+        <button class = "btn song remove" data-name = "${songData.name}">Remove from Playlist</button>
       </div>
       `
     );
