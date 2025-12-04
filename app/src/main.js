@@ -208,80 +208,60 @@ document.addEventListener("click", function (find) {
   if (find.target.classList.contains("add")) {
     const songData = songs.find((song) => song.name === songName);
 
-    // Prevent duplicate entries
     if (!playlist.find((song) => song.name === songName)) {
       playlist.push(songData);
       updatePlaylistDisplay();
     } else {
-      alert(`${songName} is already in the playlist!`);
+      alert(`${songName} was already Added you bum.`);
     }
   } else if (find.target.classList.contains("remove")) {
-    // 1. Find the index of the song to remove
     const songIndex = playlist.findIndex((song) => song.name === songName);
-
     if (songIndex !== -1) {
-      // 2. Remove the song from the array
       playlist.splice(songIndex, 1);
-
-      // 3. Update the display
       updatePlaylistDisplay();
     }
   }
 });
 
-// --- Theme Toggle ---
+//Theme
 
-document
-  .querySelector(".btn-theme-toggle")
-  .addEventListener("click", function () {
-    if (document.body.classList.contains("cool")) {
-      document.body.classList.add("warm");
-      document.body.classList.remove("cool");
-    } else {
-      document.body.classList.add("cool");
-      document.body.classList.remove("warm");
-    }
-  });
+document.querySelector(".theme").addEventListener("click", function () {
+  if (document.body.classList.contains("light")) {
+    document.body.classList.add("dark");
+    document.body.classList.remove("light");
+  } else {
+    document.body.classList.add("light");
+    document.body.classList.remove("dark");
+  }
+});
 
-// --- New Song Submission ---
+//Input song :)
 
 songForm.addEventListener("submit", function (event) {
-  event.preventDefault(); // Stop the form from refreshing the page
+  event.preventDefault();
 
-  // Get input values
   const name = document.getElementById("songName").value;
   const artist = document.getElementById("artistName").value;
   const genre = document.getElementById("songGenre").value.toLowerCase().trim();
   const image = document.getElementById("imageUrl").value;
 
-  // Validation (basic check if fields are filled)
   if (!name || !artist || !genre || !image) {
     alert("Please fill in all fields to add a new song.");
     return;
   }
 
-  // Check if the song already exists (using a simple name check)
   if (songs.some((song) => song.name.toLowerCase() === name.toLowerCase())) {
     alert(`The song "${name}" is already in the music store.`);
     return;
   }
 
-  // Create new song object
   const newSong = {
     name: name,
     artist: artist,
-    // Using lowercase for genre makes filtering consistent
     genre: genre,
-    // Using the URL directly from the input
     image: image,
   };
-
-  // Add the new song to the main array
   songs.push(newSong);
-
-  // Update the display of the music store
   getSongs(songs);
-
-  // Optional: Clear the form
   songForm.reset();
 });

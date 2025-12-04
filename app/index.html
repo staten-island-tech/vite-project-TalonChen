@@ -14,35 +14,45 @@
     <title>App</title>
   </head>
 
-  <body class="cool">
+  <body class="light">
     <div class="main">
-      <button class="btn btn-theme-toggle">Toggle Theme</button>
+      <button class="btn theme">Dark/Light</button>
 
       <h1 class="title">Music Store</h1>
 
       <div class="addSongSection">
-        <h2>Add a New Song to the Store</h2>
+        <h2>Add Your Own Cool Song</h2>
         <form id="addSongForm">
-          <div class="form-group">
+          <div class="formGroup">
             <label for="songName">Song Name:</label>
             <input type="text" id="songName" required />
           </div>
-          <div class="form-group">
+          <div class="formGroup">
             <label for="artistName">Artist Name:</label>
             <input type="text" id="artistName" required />
           </div>
-          <div class="form-group">
+          <div class="formGroup">
             <label for="songGenre">Genre:</label>
-            <input type="text" id="songGenre" placeholder="e.g., game, pop, rock, edm" required /> 
+            <input
+              type="text"
+              id="songGenre"
+              placeholder="Input - Game, Pop, Rock, EDM"
+              required
+            />
           </div>
-          <div class="form-group">
+          <div class="formGroup">
             <label for="imageUrl">Album Image URL:</label>
-            <input type="url" id="imageUrl" placeholder="http://example.com/image.jpg" required />
+            <input
+              type="url"
+              id="imageUrl"
+              placeholder="http://example.com/image.jpg"
+              required
+            />
           </div>
-          <button type="submit" class="btn add-btn">Submit New Song</button>
+          <button type="submit" class="btn addBtn">Submit New Song</button>
         </form>
       </div>
-      
+
       <div class="contain">
         <button class="categories box btn">All</button>
         <button class="categories box btn">EDM</button>
@@ -53,7 +63,7 @@
 
       <div class="musicLibrary"></div>
 
-      <div class="playlist hidden">
+      <div class="playlist">
         <h1 class="playlistTitle title">
           Your Playlist
           <span class="playlistCount">(0 songs)</span>
