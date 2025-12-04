@@ -9,6 +9,11 @@
   --secondary: var(--dark-blue);
 }
 
+/* New: Class to hide an element */
+.hidden {
+  display: none !important;
+}
+
 .cool {
   --primary: var(--cyan);
   --secondary: var(--dark-blue);
@@ -25,7 +30,9 @@
 
 .main {
   background-color: var(--primary);
-  height: 100%;
+  /* Added min-height to ensure background covers content when playlist is long */
+  min-height: 100vh; 
+  padding-bottom: 5rem;
 }
 
 html,
@@ -34,18 +41,28 @@ body,
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font: 62.5%;
+  /* Resetting font size to 10px (100% of 16px is 16px) */
+  font-size: 10px; 
 }
 
+/* --- Typography and Layout --- */
 .title {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   flex-direction: row;
-  align-content: center;
+  align-items: center;
+  gap: 1rem; 
   font-family: "Syne Mono", monospace;
   font-weight: 400;
   font-style: normal;
+  padding-top: 2rem;
+  font-size: 4rem;
+}
+
+.playlistCount {
+    font-size: 3rem; 
+    color: var(--dark-blue); 
 }
 
 .contain {
@@ -61,20 +78,29 @@ body,
 }
 
 .categories {
-  font-size: 100px;
-  display: flex inline;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  font-size: 1.6rem; 
+  display: inline-flex; 
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+  margin: 0 0.5rem;
   border-radius: 25px;
+  border: 2px solid var(--secondary);
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.musicLibrary {
+/* --- Song Display --- */
+.musicLibrary,
+.playlistSongs { 
   font-size: 1rem;
   margin: 2rem auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   flex-direction: row;
+  width: 90%; 
 }
 
 .songs {
@@ -82,23 +108,97 @@ body,
   height: 50vh;
   width: 22%;
   padding: 1rem;
-  margin: 5rem auto;
+  margin: 5rem 1rem;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   transition: 0.6s ease;
+  font-size: 1.6rem;
+  background-color: white;
+}
+
+.songs h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
 .songs img {
-  max-width: 100rem;
-  max-height: 10rem;
+  max-width: 100%;
+  max-height: 15rem; 
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border-radius: 5px;
 }
 
 .songs:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   cursor: pointer;
   transition: all 0.7s ease;
-  box-shadow: ;
+  box-shadow: 5px 5px 15px var(--secondary), -5px -5px 15px var(--primary);
+}
+
+.btn {
+    padding: 1rem 1.5rem;
+    font-size: 1.6rem;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--secondary);
+    color: white;
+    cursor: pointer;
+    margin-top: auto; /* Push button to the bottom of the song box */
+}
+
+/* --- New Song Form Styling --- */
+.addSongSection {
+    width: 90%;
+    margin: 3rem auto;
+    padding: 3rem;
+    border: 2px solid var(--secondary);
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.addSongSection h2 {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--secondary);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.6rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.add-btn {
+    display: block;
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 2rem;
+    margin-top: 2rem;
+    background-color: var(--secondary);
+    transition: background-color 0.3s ease;
+}
+
+.add-btn:hover {
+    background-color: var(--primary);
+    color: var(--secondary);
 }
