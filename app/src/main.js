@@ -147,7 +147,7 @@ function getSongs(currentSongs) {
       `<div class="songs" data-genre = "${song.genre}">
          <h2 class = "song">${song.name}</h2>
          <img src="${song.image}" alt = "${song.name}" />
-         <button class = "btn song add" data-name = "${song.name}">Add to Playlist</button>
+         <button class = "btn add" data-name = "${song.name}">Add to Playlist</button>
        </div>
        `
     );
@@ -186,7 +186,7 @@ function updatePlaylistDisplay() {
       `<div class="songs" data-genre="${songData.genre}" data-name="${songData.name}">
         <h2 class="song">${songData.name}</h2>
         <img src="${songData.image}" alt="${songData.name}" />
-        <button class="btn song remove" data-name="${songData.name}">Remove from Playlist</button>
+        <button class="btn remove" data-name="${songData.name}">Remove from Playlist</button>
       </div>
       `
     );
@@ -212,7 +212,7 @@ document.addEventListener("click", function (find) {
       playlist.push(songData);
       updatePlaylistDisplay();
     } else {
-      alert(`${songName} was already Added you bum.`);
+      alert(`${songName} was already added you bum.`);
     }
   } else if (find.target.classList.contains("remove")) {
     const songIndex = playlist.findIndex((song) => song.name === songName);
@@ -246,12 +246,12 @@ songForm.addEventListener("submit", function (event) {
   const image = document.getElementById("imageUrl").value;
 
   if (!name || !artist || !genre || !image) {
-    alert("Please fill in all fields to add a new song.");
+    alert("You left something blank");
     return;
   }
 
   if (songs.some((song) => song.name.toLowerCase() === name.toLowerCase())) {
-    alert(`The song "${name}" is already in the music store.`);
+    alert(`The song "${name}" is already in the music store bro.`);
     return;
   }
 
