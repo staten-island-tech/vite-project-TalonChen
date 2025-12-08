@@ -240,18 +240,13 @@ document.querySelector(".theme").addEventListener("click", function () {
 songForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  const name = document.getElementById("songName").value;
-  const artist = document.getElementById("artistName").value;
-  const genre = document.getElementById("songGenre").value.toLowerCase().trim();
-  const image = document.getElementById("imageUrl").value;
-
-  if (!name || !artist || !genre || !image) {
-    alert("You left something blank");
-    return;
-  }
+  let name = document.getElementById("songName").value;
+  let artist = document.getElementById("artistName").value;
+  let genre = document.getElementById("songGenre").value.toLowerCase();
+  let image = document.getElementById("imageUrl").value;
 
   if (songs.some((song) => song.name.toLowerCase() === name.toLowerCase())) {
-    alert(`The song "${name}" is already in the music store bro.`);
+    alert(`You literally already added "${name}". `);
     return;
   }
 

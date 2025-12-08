@@ -48,7 +48,7 @@ body,
 
 .playlistCount {
   font-size: 3rem;
-  color: var(--black);
+  color: var(--secondary);
 }
 
 .contain {
@@ -152,7 +152,7 @@ body,
   border: 2px solid var(--secondary);
   border-radius: 10px;
   background-color: var(--primary);
-  box-shadow: 0 4px 8px black;
+  box-shadow: 0 4px 8px var(--secondary);
 }
 
 .addSongSection h2 {
