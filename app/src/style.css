@@ -1,9 +1,6 @@
 :root {
   --black: #000000;
   --white: white;
-
-  --primary: var(--white);
-  --secondary: var(--black);
 }
 
 .light {
